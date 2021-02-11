@@ -9,7 +9,7 @@
     "audit": "npx electronegativity -i ./",
     "translate": "node ./app/localization/translateMissing.js",
     "dev-server": "cross-env NODE_ENV=development webpack serve --config ./webpack.development.js",
-    "dev": "concurrently --success first \"npm run dev-server\" \"cross-env NODE_ENV=development electron .\" -k",
+    "dev": "npm run build-preload && concurrently --success first \"npm run dev-server\" \"cross-env NODE_ENV=development electron .\" -k",
     "prod-build": "cross-env NODE_ENV=production npx webpack --mode=production --config ./webpack.production.js",
     "prod": "npm run prod-build && electron .",
     "pack": "electron-builder --dir",
@@ -17,7 +17,8 @@
     "dist-mac": "npm run prod-build && electron-builder --mac",
     "dist-linux": "npm run prod-build && electron-builder --linux",
     "dist-windows": "npm run prod-build && electron-builder --windows",
-    "dist-all": "npm run prod-build && electron-builder --mac --linux --windows"
+    "dist-all": "npm run prod-build && electron-builder --mac --linux --windows",
+    "build-preload": "cross-env NODE_ENV=development webpack --config ./webpack.preload.js"
   },
   "build": {
     "productName": "YourProductName",
