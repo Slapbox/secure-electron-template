@@ -12,8 +12,10 @@
                     "Redux": "./app/src/redux",
                     "I18n": "./app/localization"
                 }
-            }
-        ]
+            },
+        ],
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-transform-classes",
     ],
     "presets": [
         "@babel/preset-env",

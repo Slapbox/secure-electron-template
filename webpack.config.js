@@ -14,8 +14,9 @@ module.exports = {
       "crypto": require.resolve("crypto-browserify"),
       "buffer": require.resolve("buffer/"),
       "path": require.resolve("path-browserify"),
-      "stream": require.resolve("stream-browserify")
-    }
+      "stream": require.resolve("stream-browserify"),
+       // "process": require.resolve("process/browser")
+    },
   },
   module: {
     rules: [
@@ -70,8 +71,8 @@ module.exports = {
   plugins: [
     // fix "process is not defined" error;
     // https://stackoverflow.com/a/64553486/1837080
-    new webpack.ProvidePlugin({
-      process: "process/browser",
-    }),
-  ]
+     new webpack.ProvidePlugin({
+       process: "process/browser",
+     }),
+  ],
 };

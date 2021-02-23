@@ -2,8 +2,18 @@ import React from "react";
 import ROUTES from "Constants/routes";
 import { Link } from "react-router-dom";
 
-class Welcome extends React.Component {
+class Welcome extends React.PureComponent {
+  componentDidMount() {
+    setInterval(this.setRandomValue, 10000)
+  }
+
+  setRandomValue() {
+    const value = Math.random()
+    this.setState({ value })
+  }
+
   render() {
+    console.warn('rendered')
     return (
       <React.Fragment>
         <section className="section">
